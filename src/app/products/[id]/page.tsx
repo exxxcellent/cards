@@ -33,11 +33,11 @@ const getProductById = async (id: number): Promise<Product> => {
     return await response.json();
 };
 
-interface PageProps {
-    params: { id: string };
-}
+// interface PageProps {
+//     params: { id: string };
+// }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: { params: { id: string } }) {
     const data = await getProductById(+params.id);
 
     return (
