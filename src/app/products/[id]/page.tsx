@@ -185,43 +185,46 @@ export default async function Page({ params }: PageProps) {
                         Reviews
                     </Typography>
                     <ul className="flex flex-col gap-5">
-                        {data.reviews.map((review) => (
-                            <li
-                                key={review.reviewerEmail}
-                                className="flex justify-between bg-zinc-300 p-5 rounded-md">
-                                <div className="flex flex-col gap-5">
-                                    <div className="flex flex-col gap-0">
-                                        <Typography
-                                            className="font-medium text-blue-500"
-                                            variant="h6"
-                                            component="h6">
-                                            {review.reviewerName}
-                                        </Typography>
+                        {data.reviews &&
+                            data.reviews.map((review) => (
+                                <li
+                                    key={review.reviewerEmail}
+                                    className="flex justify-between bg-zinc-300 p-5 rounded-md">
+                                    <div className="flex flex-col gap-5">
+                                        <div className="flex flex-col gap-0">
+                                            <Typography
+                                                className="font-medium text-blue-500"
+                                                variant="h6"
+                                                component="h6">
+                                                {review.reviewerName}
+                                            </Typography>
+                                            <Typography
+                                                variant="body1"
+                                                component="p"
+                                                sx={{
+                                                    color: 'text.secondary',
+                                                }}>
+                                                {new Date(
+                                                    review.date
+                                                ).toDateString()}
+                                            </Typography>
+                                        </div>
+
                                         <Typography
                                             variant="body1"
-                                            component="p"
-                                            sx={{ color: 'text.secondary' }}>
-                                            {new Date(
-                                                review.date
-                                            ).toDateString()}
+                                            component="p">
+                                            {review.comment}
                                         </Typography>
                                     </div>
-
-                                    <Typography
-                                        variant="body1"
-                                        component="p">
-                                        {review.comment}
-                                    </Typography>
-                                </div>
-                                <div className="flex flex-col justify-between">
-                                    <Rating
-                                        size="medium"
-                                        value={review.rating}
-                                        readOnly
-                                    />
-                                </div>
-                            </li>
-                        ))}
+                                    <div className="flex flex-col justify-between">
+                                        <Rating
+                                            size="medium"
+                                            value={review.rating}
+                                            readOnly
+                                        />
+                                    </div>
+                                </li>
+                            ))}
                     </ul>
                 </div>
             </div>
