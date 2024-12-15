@@ -12,16 +12,21 @@ import {
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export async function generateMetadata({
-    params,
-}: PageProps): Promise<Metadata> {
-    const { title, description } = await getProductById(params.id);
+// export async function generateMetadata({
+//     params,
+// }: PageProps): Promise<Metadata> {
+//     const { title, description } = await getProductById(params.id);
 
-    return {
-        title: `${title}`,
-        description: `${description}`,
-    };
-}
+//     return {
+//         title: `${title}`,
+//         description: `${description}`,
+//     };
+// }
+
+export const metadata: Metadata = {
+    title: 'Product',
+    description: 'App about cards',
+};
 
 const getProductById = async (id: number): Promise<Product> => {
     const response = await fetch(`https://dummyjson.com/products/${id}`);
