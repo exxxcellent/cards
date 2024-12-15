@@ -34,11 +34,11 @@ const getProductById = async (id: number): Promise<Product> => {
 };
 
 interface PageProps {
-    params: { id: number };
+    params: { id: string };
 }
 
 export default async function Page({ params }: PageProps) {
-    const data = await getProductById(params.id);
+    const data = await getProductById(+params.id);
 
     return (
         <div className="bg-zinc-200 min-h-screen">
