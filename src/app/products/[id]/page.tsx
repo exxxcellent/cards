@@ -11,12 +11,16 @@ import {
 } from '@mui/material';
 import Link from 'next/link';
 
+interface PageProps {
+    params: { id: string };
+}
+
 const getProductById = async (id: number): Promise<Product> => {
     const response = await fetch(`https://dummyjson.com/products/${id}`);
     return await response.json();
 };
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: PageProps) {
     const data = await getProductById(+params.id);
 
     return (
