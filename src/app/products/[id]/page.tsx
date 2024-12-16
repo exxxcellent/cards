@@ -9,21 +9,7 @@ import {
     TableRow,
     Typography,
 } from '@mui/material';
-import type { Metadata } from 'next';
 import Link from 'next/link';
-
-export async function generateMetadata({
-    params,
-}: {
-    params: { id: string };
-}): Promise<Metadata> {
-    const { title, description } = await getProductById(+params.id);
-
-    return {
-        title,
-        description,
-    };
-}
 
 const getProductById = async (id: number): Promise<Product> => {
     const response = await fetch(`https://dummyjson.com/products/${id}`);
