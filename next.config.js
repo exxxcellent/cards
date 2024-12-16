@@ -5,10 +5,9 @@ const nextConfig = {
     typescript: {
         ignoreBuildErrors: true,
     },
-    distDir: 'build',
     output: 'export',
+    distDir: 'out',
     basePath: '/cards',
-    assetPrefix: '/cards',
 };
 
 module.exports = nextConfig;
