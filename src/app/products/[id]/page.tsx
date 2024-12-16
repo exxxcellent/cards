@@ -15,6 +15,15 @@ interface PageProps {
     params: { id: string };
 }
 
+export async function generateStaticParams() {
+    const response = await fetch('https://dummyjson.com/products');
+    const data = await response.json();
+
+    return data.products.map((product: Product) => ({
+        id: product.id.toString(),
+    }));
+}
+
 const getProductById = async (id: number): Promise<Product> => {
     const response = await fetch(`https://dummyjson.com/products/${id}`);
     return await response.json();
