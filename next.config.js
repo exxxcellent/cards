@@ -6,6 +6,9 @@ const nextConfig = {
         ignoreBuildErrors: true,
     },
     distDir: 'build',
+    output: 'export',
+    basePath: '/cards',
+    assetPrefix: '/cards',
 };
 
 module.exports = nextConfig;
